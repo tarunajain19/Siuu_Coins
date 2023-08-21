@@ -1,0 +1,218 @@
+/* Reset some default styles */
+body {
+  background-color: #6edefd; /* Replace with your desired color */
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style for the navbar */
+.navbar {
+  background-color: #e9f453;
+  padding: 10px;
+}
+
+/* Style for the navigation list */
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Style for the navigation items */
+.nav-list li {
+  position: relative;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: rgb(4, 3, 3);
+  padding: 10px;
+}
+
+/* Style for the dropdown menu */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #5a4def;
+  min-width: 150px;
+  z-index: 1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Style for dropdown menu items */
+.dropdown-content li {
+  padding: 10px;
+}
+
+/* Change the color of dropdown menu links */
+.dropdown-content li a {
+  color: white;
+}
+
+/* Style for the active link */
+.nav-list li.active a {
+  font-weight: bold;
+}
+
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Center the search container */
+.search-container {
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style for the search input */
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+/* Style for the search button */
+.search-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+/* Hover effect for the search button */
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the wide band container */
+ .wide-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+} 
+
+/* Style for the image container */
+.image-container {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* Style for images */
+.slider-container {
+  position: relative;
+}
+
+#slider-image {
+  width: 1000px;
+  height: 300px;
+}
+
+/* Style for toggle buttons */
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: -10px;
+}
+
+.next-btn {
+  right: -10px;
+}
+
+.image-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.abc {
+  width: 380px; /* Set the width you want */
+  height: 200px; /* Set the height you want */
+  object-fit: cover; /* Maintain aspect ratio while filling the container */
+  border: 2px solid transparent; /* Initial border style */
+  transition: border-color 0.3s, transform 0.3s; /* Add transitions for smooth effects */
+}
+a img:hover {
+  content: attr(data-name);
+  border-color: #3498db; /* Border color on hover */
+  transform: scale(1.05); /* Scale up slightly on hover */
+}
+h2 {
+  text-align: center; /* Center align the heading */
+  margin-bottom: 20px; /* Add some spacing below the heading */
+}
+
+/* Style for the footer */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Style for each footer section */
+.footer-section {
+  flex: 1;
+  padding: 10px;
+}
+
+.footer-section h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Style for brand images */
+.footer-section img {
+  max-width: 100px;
+  margin: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .footer {
+      flex-direction: column;
+  }
+
+  .footer-section {
+      margin-bottom: 20px;
+      text-align: center;
+  }
+}
