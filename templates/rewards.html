@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards Catalog</title>
+    <link rel="stylesheet" href="">
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color:blue;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.main {
+    padding: 20px;
+}
+
+.rewards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.reward-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.reward-item img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.reward-item h2 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.reward-item p {
+    color: #666;
+}
+
+.redeem-button {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.redeem-button:hover {
+    background-color: #ffbf40;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Rewards</h1>
+    </header>
+
+    <main>
+        <section class="rewards">
+            <div class="reward-item">
+                <img src="{{url_for('static',filename='images/rewards1.jpeg')}}"  alt="Reward 1">
+                <h2>Reward 1</h2>
+                <!-- <p>Description of Reward 1...</p> -->
+                <button class="redeem-button">Redeem</button>
+            </div>
+
+            <div class="reward-item">
+                <img src="{{url_for('static',filename='images/rewards2.jpeg')}}" alt="Reward 2">
+                <h2>Reward 2</h2>
+                <!-- <p>Description of Reward 2...</p> -->
+                <button class="redeem-button">Redeem</button>
+            </div>
+            <div class="reward-item">
+                <img src="{{url_for('static',filename='images/rewards3.jpeg')}}" alt="Reward 3">
+                <h2>Reward 3</h2>
+                <!-- <p>Description of Reward 2...</p> -->
+                <button class="redeem-button">Redeem</button>
+            </div>
+            
+
+            <!-- Add more reward items here -->
+
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

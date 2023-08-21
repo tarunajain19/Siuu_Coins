@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <style>
+        /* Your CSS styles here */
+        .coin-image {
+            width: 17px; /* Adjust this size as needed */
+            height: auto; /* To maintain aspect ratio */
+            margin-top: 1px; /* Adjust this value to move the image down */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff; /* Light blue shade */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #2979ff; /* Dark blue shade */
+            color: white;
+            margin: 0;
+        }
+        .product-details {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px auto;
+            display: flex;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+        .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .actual-price {
+            color: #555;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .product-description {
+            font-size: 16px;
+        }
+        .add-to-cart {
+            background-color: #2979ff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 16px;
+        }
+        .product-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end; /* Move content to the right corner */
+            gap: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Product Details</h1>
+
+    {% for product in variety_products %}
+    <div class="product-details">
+        <div class="product-image">
+            <img src="{{ product[3] }}" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h2>{{ product[0] }}</h2>
+            <div class="product-description">
+                {{ product[1] }}
+            </div>
+            <div class="product-price">
+                Rs.{{ product[2] }}
+            </div>
+            <div class="actual-price">
+               Rs.{{ product[5] }} + {{ product[6] }} <img src="{{ url_for('static', filename='images/coinn.jpeg') }}" alt="Coins"  class="coin-image">
+            </div>
+          
+            <div>
+               
+            </div>
+            <a href="{{url_for('cart',variable=product[7])}}"class="add-to-cart">Add to Cart</a>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon">  
+    <style>
+        body{
+            background-image: url("{{url_for('static',filename='lbl2.png')}}");
+            background-repeat: no-repeat;
+        background-size: cover;
+        }
+        .leaderboard {
+            /* background-color: white; */
+            background-color: rgba(0,0,0,0);
+            border: 3px solid #ccc;
+            padding: 10px;
+            max-width: 700px;
+            margin: 0 auto;
+          }
+          
+          h1 {
+            font-size: 50px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: rgb(123, 60, 181);
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #f00, 0 0 70px #f00, 0 0 80px #f00, 0 0 100px #f00, 0 0 150px #f00;
+          }
+          
+          ol {
+            list-style: none;
+            padding: 0;
+          }
+          
+          li {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+          }
+          
+          li:first-child {
+            font-weight: bold;
+          }
+          li:nth-child(2) {
+            font-weight: bold;
+          }
+          .name {
+            flex-basis: 70%;
+          }
+          .name1{
+            flex-basis: 70%;
+            color: rgb(37, 75, 161);
+          }
+          .score {
+            flex-basis: 30%;
+            text-align: right;
+          }
+          .l1{
+            font-size: 30px;
+            color: rgb(86, 1, 81);
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+          }
+          #l2{
+            background-color: rgb(222, 137, 222);
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 20px;
+          }
+          .image {
+			margin-right: 10px;
+            
+		}
+        .container {
+			display: flex;
+			align-items: center;
+		}
+        .l3{
+            font-size: 20px;
+            background-color: rgb(253, 198, 255);
+            /* border: 1px solid #ccc; */
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="container"> -->
+
+  <div class="leaderboard">
+    <h1>LEADERBOARD</h1>
+        <ol>
+            <li class="l1">
+            <span class="name">Username</span>
+            <span class="score">Rank</span>
+            <span class="score">Score</span>
+            </li>
+            <li id="l2">
+            <span class="name1">{{msg}}</span>
+            <span class="score">{{rank1[0]}}</span>
+            <span class="score">{{score[0]}}</span>
+            </li>
+            {% for row in rank %}
+            <li class="l3">
+            <span class="name1">{{row[0]}}</span>
+            <span class="score">{{row[2]}}</span>
+            <span class="score">{{row[1]}}</span>
+             </li>
+            {% endfor %}
+          
+        </ol>
+      </div>
+    <!-- </div> -->
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LETTER RECOGNITION</title>
+  <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}"> -->
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon">
+    
+  <style>
+   
+   body{
+    
+    background-color: antiquewhite;
+   }
+    .dashboard-button {
+      background-color: #4caf4c; /* Green */
+      border: none;
+      color: white;                                                                                                           
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+   a{
+    z-index:-1;
+   }
+   div{
+    z-index: 0;
+   }
+   div.img{
+    z-index: 2;
+   }
+    .animation-container {
+      position: relative; /* Make the container a positioning context */
+    }
+    
+    .overlap-image {
+      position: absolute;
+      top: -100px; /* Position off-screen initially */
+      left: 0;
+      width: 200px;
+      height: 200px;
+      background-image: url("static/images/12.jpg");
+      animation: overlap-animation 1s ease-in-out forwards;
+      animation-delay: 8s; /* Delay the animation by 5 seconds */
+    }
+    
+    @keyframes overlap-animation {
+      from {
+        top: 0px; /* Start off-screen */
+      }
+      to {
+        top: 100px; /* End at desired position */
+      }
+    }
+    .navbar {
+      display: flex;
+    flex-wrap: wrap;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 65px;
+      background-color: #34135f; /* white */
+      border-bottom: 1px solid #CCCCCC; /* light gray */
+    }
+    .navbar h1{
+      text-align: center;
+      color: #CCCCCC;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div class="animation-container">
+    <div class="overlap-image"></div> -->
+    <audio id="audio-player" controls autoplay loop>
+      <!-- <audio controls> -->
+      <source src="{{url_for('static',filename='images/child.mp3')}}" type="audio/mpeg">
+      <!-- Your browser does not support the audio element. -->
+    </audio>
+    <div class="navbar"><h1>EDUKIDS</h1></div>
+    <div> <img src="{{url_for('letter_page')}}" alt="hi"></div>
+    <!-- Navigation bar swith two buttons -->
+    
+   
+    <a class="dashboard-button" href="{{url_for('dash')}}">Dashboard</a>
+  <!-- </div> -->
+
+   
+
+
+  
+</body>
+</html>

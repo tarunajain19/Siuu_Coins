@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 150px;
+      background-color: white;
+  }
+
+  /* ... Rest of your styles ... */
+
+  /* Style for the "View All" button */
+  .view-all-button {
+      background-color: #007bff;
+      color: white;
+      padding: 3px 8px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 20px;
+      display: block;
+      margin: 0 auto;
+      margin-top: 5px;
+  }
+
+  .view-all-button:hover {
+      background-color: #0056b3;
+  }
+    .variety-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  }
+  .variety {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+  }
+  .product-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+  }
+  .product {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 150px;
+  }
+  .product img {
+      max-width: 100px;
+      max-height: 100px;
+  }
+    a{
+      text-decoration: none;
+      text-align: center;
+      justify-content: center;
+    }
+
+
+
+
+ 
+      /* Your existing styles here */
+
+      /* Style for the "View All" button */
+      .view-all-button {
+        background-color: #007bff;
+        color: white;
+        padding: 3px 8px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+
+      .view-all-button:hover {
+          background-color: #0056b3;
+      }
+
+</style>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const varieties = document.querySelectorAll('.variety');
+        varieties.forEach(variety => {
+            variety.addEventListener('click', () => {
+                variety.classList.toggle('expanded');
+            });
+        });
+    });
+</script>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon">
+   
+</head>
+<body>
+ 
+
+    
+    <nav class="navbar">
+        <ul class="nav-list">
+          <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
+            <!-- <li class="dropdown">
+                <a href="#">Services</a>
+                <ul class="dropdown-content">
+                    <li><a href="#">Service 1</a></li>
+                    <li><a href="#">Service 2</a></li>
+                    <li><a href="#">Service 3</a></li>
+                </ul>
+            </li> -->
+            <li class="dropdown">
+              <a href="#">My Wallet</a>
+              <ul class="dropdown-content">
+                  <li><a href="{{url_for('earncoins')}}">Siuu Coins Zone</a></li>
+                  <li><a href="{{url_for('donatecoins')}}">Donate Coins</a></li>
+                  <li><a href="{{url_for('rewards')}}">Rewards</a></li>
+              </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#">My Profile</a>
+            <ul class="dropdown-content">
+                <li><a href="{{url_for('orders')}}">My Orders</a></li>
+                <li><a href="{{url_for('profile')}}">About Me</a></li>
+            </ul>
+        </li>
+        <a href="{{url_for('display')}}">Cart</a>
+        <a href="{{url_for('logout')}}">Log Out</a>
+        </ul>
+        
+    </nav>
+  
+   <div class="wide-band">
+    <div class="slider-container">
+      
+      <img id="slider-image" src="{{url_for('static',filename='images/rakshasale.jpg')}}" alt="Image">
+      <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+      <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+      </div>
+</div>
+<script>
+  const images = [
+    "{{ url_for('static', filename='images/rakshasale.jpg') }}",
+    "{{ url_for('static', filename='images/jansale.jpg') }}",
+    "{{ url_for('static', filename='images/ganeshsale.jpg') }}"
+  ];
+  let currentImageIndex = 0;
+  const sliderImage = document.getElementById("slider-image");
+  
+  function updateImage() {
+    sliderImage.src = images[currentImageIndex];
+  }
+  
+  function prevSlide() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    updateImage();
+  }
+  
+  function nextSlide() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    updateImage();
+  }
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    updateImage(); // Display the initial image
+  });
+  </script>
+  
+  </body>
+  </html>
+ 
+  
+  
+  
+  
+  
+  
+<h2 >Choose from a wide variety of products:</h2>
+
+
+    <div class="variety-container">
+        {% for sno, variety, products in variety_products %}
+            <div class="variety">
+                <h2>{{ variety }}</h2>
+                <a href="{{url_for('cat', variable=sno)}}" class="view-all-button">View All</a>
+                <div class="product-container">
+                  
+                    {% for product in products %}
+                        <div class="product">
+                            <img src="{{ product[3] }}" alt="{{ product[0] }}">
+                            <p>{{ product[0] }}</p>
+                            <p>Rs.{{ product[2] }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+<footer class="footer">
+  <div class="footer-section">
+      <h2>Our Top Brands</h2>
+      <img src="{{url_for('static',filename='images/brands1.png')}}" alt="Brand 1">
+      <img src="{{url_for('static',filename='images/brands2.png')}}" alt="Brand 2">
+      <img src="{{url_for('static',filename='images/brands3.jpg')}}" alt="Brand 2">
+      <!-- Add more brand images as needed -->
+  </div>
+  <div class="footer-section">
+      <h2>Contact Us</h2>
+      <br>
+      <p>Email: flipmart@gmail.com</p>
+      <p>Phone: +123-456-7890</p>
+  </div>
+  <div class="footer-section">
+
+      <h2>Our Offices</h2>
+      <br>
+      <p>123 Street, City</p>
+      <p>456 Avenue, Town</p>
+      <!-- Add more office locations as needed -->
+  </div>
+</footer>
+
+</body>
+</html>

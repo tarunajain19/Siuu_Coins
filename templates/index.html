@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FlipMart</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" media="screen and (max-width: 1170px)" href="{{url_for('static',filename='css/phone.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon"> 
+</head>
+<style>
+    #san{
+        text-align: center; 
+        font-weight: 10px;
+        color: rgb(6, 8, 9);
+    }
+</style>
+<body>
+    <!-- <header id="header"> -->
+   
+    <nav id="navbar">
+        <div id="logo">
+            
+            <img src="{{url_for('static',filename='images/flipmart logo.png')}}" width="100" 
+            height="150" alt="MyOnlineMeal.com">
+        </div>
+        <ul id="menus">
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#contact">Login</a></li>
+            <li class="item"><a href="#services-container">What's New</a></li>
+            <li class="item"><a href="#client-section">Our Creators</a></li>
+        </ul>
+    </nav>
+<!-- </header> -->
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul class="flashes">
+  {% for message in messages %}
+    <h1 id="san"><li>{{ message }}</li></h1>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endwith %}
+    <section id="home">
+        <h1 class="h-primary">Welcome to FlipMart!</h1>
+        <p>Your one stop destination for everything!</p>
+        <!--<p>“Let the kids no longer be dependent on Pen and Paper to learn, read and write.”</p>-->
+        <a class="btn" href="{{url_for('signin')}}">Create Account</a>
+    </section>
+    <section id="contact">
+        <br>
+        <br><br>
+        <h1 class="h-primary center">Login</h1>
+        <div id="contact-box">
+            <form action="{{url_for('login')}}" method="post">
+                <div class="form-group">
+                    <label for="name">Email: </label>
+                    <input type="email" name="user" id="name" placeholder="Enter your Email" reuired>
+                </div>
+                <div class="form-group">
+                    <label for="email">Password: </label>
+                    <input type="password" name="passwd" id="email" placeholder="Enter your Password" required>
+                </div>
+        
+                <br><br> <input type="submit" value="Login" id="login-form-submit" >
+            </form>
+        </div>
+        <div>
+            <h3 align="center" id="fp"><a href="{{url_for('forget_pass')}}">Forgot password?</a></h3>
+        </div>
+        <br>
+        <div>
+            <h3 align="center" id="fp"><a href="{{url_for('signin')}}">New user?</a></h3>
+        </div>
+    </section>
+    <section id="services-container">
+        <br><br><br><br><br><br><br><br>
+        <h1 class="h-primary center">Key Features</h1>
+        <div id="services">
+            <div class="box">
+                <img src="{{url_for('static',filename='images/ngo.jpeg')}}" alt="">
+                <h2 class="h-secondary center"></h2>
+                <p class="center">Contribute to social causes by donating to NGOs</p>
+                    <br><br><br>
+                    <!-- <video width="320" height="240" controls autoplay> -->
+                       <!-- <source src="{{url_for('static',filename='images/v1.mp4')}}" type="video/mp4"> -->
+                      <!-- Your browser does not support the video tag. -->
+                      <!-- </video> -->
+            </div>
+            <div class="box">
+                <img src="{{url_for('static',filename='images/a8.jpg')}}" alt="">
+                <h2 class="h-secondary center">Virtual Keyboard</h2>
+                <p class="center">
+                    Experience the joy of typing in air with the help of virtual keyboard, where your kid can learn to recognize objects and type their names, perform addition and subtraction and fill in the blanks- all with just their fingers. 
+                </p>
+                <video width="320" height="240" controls autoplay>
+                    <source src="{{url_for('static',filename='images/v2.mp4')}}" type="video/mp4">
+                   Your browser does not support the video tag.
+                   </video>
+            </div>
+            <div class="box">
+                <img src="{{url_for('static',filename='images/a10.jpg')}}" alt="">
+                <h2 class="h-secondary center">Unlock Characters</h2>
+                <p class="center">Complete activities daily and unlock new characters as soon as you get enough points! This feature ensures your kid makes progress continuously.</p>
+                <br><br>
+                <video width="320" height="240" controls autoplay>
+                    <source src="{{url_for('static',filename='images/v3.mp4')}}" type="video/mp4">
+                   Your browser does not support the video tag.
+                   </video>
+            </div>
+        </div>
+    </section>
+    <section id="client-section">
+        <h1 class="h-primary center">Meet our Creators</h1>
+        <div id="clients">
+            <div class="client-item">
+                <img src="{{url_for('static',filename='images/taruna.jpeg')}}" alt="Our Client">
+            </div>
+            <div class="client-item">
+                <img src="{{url_for('static',filename='images/sanjoli.png')}}" alt="Our Client">
+            </div>
+          
+            <div class="client-item">
+                <img src="{{url_for('static',filename='images/tanisha.jpeg')}}" alt="Our Client">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- <section id="contact">
+        <br>
+        <br><br>
+        <h1 class="h-primary center">Login</h1>
+        <div id="contact-box">
+            <form action="{{url_for('login')}}" method="post">
+                <div class="form-group">
+                    <label for="name">Username: </label>
+                    <input type="text" name="user" id="name" placeholder="Enter your Username" reuired>
+                </div>
+                <div class="form-group">
+                    <label for="email">Password: </label>
+                    <input type="password" name="passwd" id="email" placeholder="Enter your Password" required>
+                </div>
+        
+                <br><br> <input type="submit" value="Login" id="login-form-submit" >
+            </form>
+        </div>
+        <div>
+            <h3 align="center" id="fp"><a href="{{url_for('forget_pass')}}">Forgot password?</a></h3>
+        </div>
+        <br>
+        <div>
+            <h3 align="center" id="fp"><a href="{{url_for('signin')}}">New user?</a></h3>
+        </div>
+    </section> -->
+
+    <!-- <footer>
+        <div class="center">
+           
+        </div>
+    </footer> -->
+</body>
+
+</html>

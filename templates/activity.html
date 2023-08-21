@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity Display</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff; /* Light blue shade */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #2979ff; /* Dark blue shade */
+            color: white;
+            margin: 0;
+        }
+        .activity-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .amount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2979ff; /* Dark blue shade */
+        }
+        .date {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Activity Display</h1>
+
+{% for item in ff %}
+<div class="activity-box">
+    <p class="amount">Amount: {{ item[0] }} Tokens</p>
+    <p class="date">Date: {{ item[1] }}</p>
+    <!-- <p class="date">Sender: {{ item[2] }}</p>
+    <p class="date">Receiver: {{ item[3] }}</p> -->
+</div>
+{% endfor %}
+
+</body>
+</html>

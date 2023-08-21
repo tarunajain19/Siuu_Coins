@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome 5 CDN link to add icones -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Sign Up</title>
+    <!-- Linking .css file with HTML page -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/sign-up.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon"> 
+    <script>
+      function checkage()
+      {
+         var age=document.getElementById("age").value;
+         if(age>5 || age<1)
+         {
+            <!-- document.getElementById("error").innerHTML="Sorry You must be Kid"; -->
+            alert("Sorry You are not kid not allowed")
+            return false;
+         }
+         return true;
+      }
+    </script>
+</head>
+<body>
+   {% with messages = get_flashed_messages() %}
+{% if messages %}
+  <ul class="flashes">
+  {% for message in messages %}
+    <h1><li>{{ message }}</li></h1>
+  {% endfor %}
+  </ul>
+{% endif %}
+{% endwith %}
+    <div id="sup" align="center">
+            <h1>Sign Up</h1>
+            <form  action='{{url_for("signin")}}' method="POST" >
+               <!-- <script src="email.js"></script> -->
+                <div>
+                    <p><label for="firstName" >First Name</label></p>
+                    <input type="text" id="firstName" autocomplete="off" name="first" placeholder="firstName" required >
+                 </div>
+                 <div>
+                    <p><label for="lastName">Last Name</label></p>
+                    <input type="text" id="lastName" autocomplete="off" name="second" placeholder="lastName" required>
+                 </div>
+             <div>
+                <p><label for="email">User Name</label></p>
+                <input type="text" id="email" autocomplete="off" name="email" placeholder="email" required>
+             </div>
+             <!-- <div>
+                <p><label for="email">Email Address</label></p>
+                <input type="email" id="email" name="mail" required autocomplete="off" placeholder="email" onclick="ValidateEmail(document.form1.text1)">
+             </div> -->
+             <div>
+                <p><label for="password">Password</label></p>
+                <input type="password" id="password"  name="passwd" placeholder="password" required >
+             </div>
+             <div>
+                <p><label for="age">age</label></p>
+                <input type="number" id="age" name="age" autocomplete="off"  placeholder="age" required>
+             </div>
+             <div>
+                <p><label for="gender">Gender</label></p>
+                <select style="width:150px; height: 30px;" name="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+             </div>
+             <div>
+               <p><label for="phone">phone</label></p>
+               <input type="number" id="phone" name="phone" autocomplete="off" placeholder="phone" required>
+            </div>
+             <button type="submit" id="btn">Sign Up Now</button>
+             
+            </form>
+            <p>Already a member? <a href="{{url_for('hello_world')}}">Log in</a></p>
+            
+    </div>
+</body>
+</html>

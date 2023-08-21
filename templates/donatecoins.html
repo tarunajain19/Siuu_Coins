@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NGO Donation Tracker</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff; /* Light blue shade */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 15px;
+            background-color: #2979ff; /* Dark blue shade */
+            color: white;
+            margin: 0;
+        }
+        .activity-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .amount {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2979ff; /* Dark blue shade */
+        }
+        .date {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Donate to make a better world around</h1>
+    <br>
+    <br>
+    <form action='{{url_for("donatecoins")}}'method="POST">
+        <label for="donationAmount">Enter Donation Amount:</label>
+        <input type="number" id="donationAmount" name="donationAmount"><br><br>
+    
+        <label for="ngoSelect">Select NGO:</label>
+        <select id="ngoSelect" name="ngoSelect">
+            <option value="ngo1">Sanjoli</option>
+            <option value="ngo2">Taruna</option>
+        </select><br><br>
+        <input type="submit" ><br><br>
+    </form>
+        <h1>Your Donations</h1>
+        {% for recc in rec %}
+        <tr>
+            <p><strong>Sender Email:</strong> {{ recc[0] }}</p>
+            <p><strong>Receiver Email:</strong> {{ recc[1] }}</p>
+            <p><strong>Amount Sent:</strong> Rs.{{ recc[2]}}</p>
+        </tr>
+        {% endfor %}
+            
+            <!-- Add more rows here for additional donations -->
+           
+         
+   
+</body>
+</html>

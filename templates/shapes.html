@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shapes Recognition</title>
+  <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}"> -->
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon">
+ 
+    <!-- <style>
+      .dashboard-button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    </style> -->
+    <style>
+      .navbar {
+        display: flex;
+      flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background-color: #34135f; /* white */
+        border-bottom: 1px solid #CCCCCC; /* light gray */
+      }
+      .navbar h1{
+        text-align: center;
+        color: #CCCCCC;
+        margin: auto;
+      }
+      body{
+        background-color: antiquewhite;
+       }
+      .dashboard-button {
+        background-color: #4caf4c; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+    </style>
+</head>
+<body>
+  <audio id="audio-player" controls autoplay loop>
+    <!-- <audio controls> -->
+    <source src="{{url_for('static',filename='images/child.mp3')}}" type="audio/mpeg">
+    <!-- Your browser does not support the audio element. -->
+  </audio>
+  <div class="navbar"><h1>EDUKIDS</h1></div>
+  <div class="loading">
+    <!-- <h1> Let's Go</h1> -->
+  
+  </div>
+  <div> <img src="{{url_for('shapes_page')}}" alt="hi"></div>
+  <!-- Navigation bar with two buttons -->
+   
+  <a class="dashboard-button" href="{{url_for('dash')}}">Dashboard</a>
+
+
+
+  
+</body>
+</html>

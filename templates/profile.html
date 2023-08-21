@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        /* Your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f7ff; /* Light blue shade */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #2979ff; /* Dark blue shade */
+            color: white;
+            margin: 0;
+        }
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        .profile-info {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .blue-text {
+            color: #2979ff; /* Dark blue shade */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Profile</h1>
+
+<div class="profile-container">
+    <div class="profile-info">
+        <h2>User Information</h2>
+        <p><strong >Name:</strong> <strong class="blue-text">{{ abc[2] }} {{ abc[3] }}</strong></p>
+        <p><strong >Email:</strong> <strong class="blue-text">{{ abc[0] }}</strong></p>
+        <p><strong >Phone:</strong> <strong class="blue-text">{{ abc[7] }}</strong></p>
+        <p><strong >Gender:</strong> <strong class="blue-text">{{ abc[6] }}</strong></p>
+        <p><strong >Account Address:</strong> <strong class="blue-text">{{ abc[9] }}</strong></p>
+    </div>
+</div>
+
+<!-- Your footer and other HTML elements here -->
+
+</body>
+</html>

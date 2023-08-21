@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome 5 CDN link to add icones -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Forgot password</title>
+    <!-- Linking .css file with HTML page -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/forgotpassword.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}" type="image/x-icon"> 
+    <script>
+      
+    </script> 
+</head>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      {{msg}}
+      <h2 class="active"> Forgot Password </h2>
+      
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+      </div>
+  
+      <!-- Login Form -->
+     
+      <form action="{{url_for('reset')}}" method="post">
+        <input type="email" id="login" class="fadeIn second" name="mail" placeholder="email id">
+        <input type="submit" class="fadeIn fourth" value="Send OTP">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <!-- <div id="formFooter">
+        <a class="underlineHover" href="index.html">Go to login page</a>
+      </div> -->
+  
+    </div>
+  </div>
